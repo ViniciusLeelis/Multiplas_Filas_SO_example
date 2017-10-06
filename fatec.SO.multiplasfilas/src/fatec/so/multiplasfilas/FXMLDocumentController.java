@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fatec.so.multiplasfilas;
 
 import java.awt.Rectangle;
@@ -13,14 +17,16 @@ import javafx.scene.shape.Line;
 import static javax.swing.text.StyleConstants.Background;
 import fatec.so.multiplasfilas.Processo;
 import fatec.so.multiplasfilas.Fila;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
+ * 
  *
  * @author Vinicius Lelis
  */
 public class FXMLDocumentController implements Initializable {
-    
-    Fila fila = new Fila();
     
     @FXML
     private Button sy01;
@@ -55,19 +61,41 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button batchLineB;
     
+    private void callPane() {
+        
+    }
+    
     @FXML 
     private void addProcessoSistema(ActionEvent event) {
-        fila.addSistema();
+          String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
+          int IDint = Integer.parseInt(id);
+          String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
+          int intTempo = Integer.parseInt(tempo);
         
+          setExecutando(sy01);
+          setPronto(sy02); 
+          //Processo processo = new Processo(IDint, 1, intTempo);
+          System.out.println(sy01.getId());
+          System.out.println(sy02.getId());
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {
-        fila.addInterativo();
+          String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
+          int IDint = Integer.parseInt(id);
+          String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
+          int intTempo = Integer.parseInt(tempo);
+   
+//        fila.addInterativo();
         
     }
     @FXML
     private void addProcessoBatch(ActionEvent event) {
-        fila.addBatch();
+          String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
+          int IDint = Integer.parseInt(id);
+          String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
+          int intTempo = Integer.parseInt(tempo);
+          
+//        fila.addBatch();
         
     }
    
@@ -80,6 +108,9 @@ public class FXMLDocumentController implements Initializable {
     }
     private void setAguardando(Button button) {
         button.setStyle("-fx-background-color:#f1ff1f;");
+    }
+    private void setPronto(Button button) {
+        button.setStyle("-fx-background-color:#ff28de;");
     }
     private void setLineExecutando(Button button) {
         button.setStyle("-fx-background-color:#79ff75;");

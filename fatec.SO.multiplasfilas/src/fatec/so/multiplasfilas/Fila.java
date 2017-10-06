@@ -1,42 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fatec.so.multiplasfilas;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Fila {
-    List<Processo>listSistema = new ArrayList<>();
-    List<Processo>listInterativo = new ArrayList<>();
-    List<Processo>listBatch = new ArrayList<>();
+/**
+ *
+ * @author felipe
+ */
+public interface Fila {
     
-    public void addSistema(Processo processo) {
-       listSistema.add(processo);
-    }
-    public void addInterativo(Processo processo) {
-       listInterativo.add(processo);
-    }
-    public void addBatch(Processo processo) {
-       listBatch.add(processo);
-    }
-    public void removeFIlaSistema(int id) {
-       for(Processo processo: listSistema) {
-           if(processo.getId()==id) {
-               listSistema.remove(processo);
-           }
-       }
-    }
-    public void removeFIlaInterativo(int id) {
-       for(Processo processo: listInterativo) {
-           if(processo.getId()==id) {
-               listInterativo.remove(processo);
-           }
-       }
-    }
-    public void removeFIlaBatch(int id) {
-       for(Processo processo: listBatch) {
-           if(processo.getId()==id) {
-               listBatch.remove(processo);
-           }
-       }
-    }
+    public void addProcesso(Processo processo);
+    public void removeProcesso(Processo processo);
+
     
 }

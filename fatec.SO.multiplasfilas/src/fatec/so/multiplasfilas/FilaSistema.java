@@ -8,6 +8,9 @@ package fatec.so.multiplasfilas;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +23,7 @@ public class FilaSistema implements Fila{
 
     @Override
     public void addProcesso(Processo processo) {
-        if(!getFull())
+        if(!getFull()) 
             listSistema.add(processo);
         else
             JOptionPane.showMessageDialog(null, "lista cheia !");
@@ -28,12 +31,20 @@ public class FilaSistema implements Fila{
 
     @Override
     public void removeProcesso(Processo processo) {
-        if(!getEmpty())
+        if(!getEmpty()) 
             listSistema.remove(0);
         else
             JOptionPane.showMessageDialog(null, "lista vazia !");
 
     }
+    public void checkProcessos(Processo processo) throws InterruptedException {
+        Thread.sleep(processo.getTempo()*1000);
+        listSistema.remove(processo);
+        System.out.println("Legal");
+    }
+    
+
+    
 
    
     public boolean getFull() {

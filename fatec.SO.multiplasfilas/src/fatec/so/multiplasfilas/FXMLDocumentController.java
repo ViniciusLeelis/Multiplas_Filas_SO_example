@@ -19,6 +19,7 @@ import fatec.so.multiplasfilas.Processo;
 import fatec.so.multiplasfilas.Fila;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.layout.AnchorPane;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +29,8 @@ import javax.swing.JOptionPane;
  */
 public class FXMLDocumentController implements Initializable {
     
+    @FXML
+    private AnchorPane AnchorPane;
     @FXML
     private Button sy01;
     @FXML
@@ -61,22 +64,26 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button batchLineB;
     
+    FilaBatch filaBatch = new FilaBatch();
+    FilaInterativa filaInterativa = new FilaInterativa();
+    FilaSistema filaSistema = new FilaSistema();
+    
     private void callPane() {
         
     }
     
+    
+    
     @FXML 
-    private void addProcessoSistema(ActionEvent event) {
+    private void addProcessoSistema(ActionEvent event) throws InterruptedException {
           String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
           int IDint = Integer.parseInt(id);
           String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
           int intTempo = Integer.parseInt(tempo);
-        
-          setExecutando(sy01);
-          setPronto(sy02); 
-          //Processo processo = new Processo(IDint, 1, intTempo);
-          System.out.println(sy01.getId());
-          System.out.println(sy02.getId());
+          Processo sistema = new Processo("true", IDint, 01, intTempo);
+          filaSistema.addProcesso(sistema);
+          filaSistema.checkProcessos(sistema);
+
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {
@@ -84,18 +91,17 @@ public class FXMLDocumentController implements Initializable {
           int IDint = Integer.parseInt(id);
           String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
           int intTempo = Integer.parseInt(tempo);
-   
-//        fila.addInterativo();
-        
+          Processo interativo = new Processo("true", IDint, 02, intTempo);
+          filaInterativa.addProcesso(interativo);
     }
     @FXML
     private void addProcessoBatch(ActionEvent event) {
           String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
           int IDint = Integer.parseInt(id);
           String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
-          int intTempo = Integer.parseInt(tempo);
-          
-//        fila.addBatch();
+          int intTempo = Integer.parseInt(tempo);         
+          Processo batch = new Processo("true", IDint, 03, intTempo);
+          filaBatch.addProcesso(batch);
         
     }
    

@@ -23,10 +23,8 @@ public class Processo {
         
     }
    
-    public void executaProcesso() throws InterruptedException {
-        this.exec = true;
-        TimeUnit.SECONDS.sleep(tempo); // Dorme por 3 segundos
-        this.exec = false;
+    public int getTempo(){
+        return tempo;
     }
     public boolean returnEstado() {
         return exec;

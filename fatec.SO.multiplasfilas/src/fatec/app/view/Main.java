@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.app.view;
 
 import javafx.application.Application;
@@ -11,11 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Admin
- */
-public class FatecSOMultiplasfilas extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -24,7 +15,7 @@ public class FatecSOMultiplasfilas extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    
     /**
      * @param args the command line arguments
      */

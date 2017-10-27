@@ -5,7 +5,7 @@ Classe de estrutura de um processo
 */
 public class Processo {
     private int id;
-    private int prioridade;
+    private int prioridade; // Prioridade == 5 (Alta); Prioridade == 3 (Média); Prioridade > 0 && Prioridade < 1 (Baixa)
     private boolean exec;
     private int tempo;
     

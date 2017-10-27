@@ -1,10 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.app.view;
 
+
+import fatec.app.process.Fila;
+import fatec.app.process.FilaSistema;
+import fatec.app.process.Processo;
 import java.awt.Rectangle;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Line;
 import static javax.swing.text.StyleConstants.Background;
-import fatec.app.Processo;
-import fatec.app.Fila;
-import fatec.app.Processo;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.scene.layout.AnchorPane;
-import javax.swing.JOptionPane;
 
 /**
  * 
@@ -64,46 +57,23 @@ public class FXMLDocumentController implements Initializable {
     private Button intLineB;
     @FXML
     private Button batchLineB;
-    
-    FilaBatch filaBatch = new FilaBatch();
-    FilaInterativa filaInterativa = new FilaInterativa();
-    FilaSistema filaSistema = new FilaSistema();
-    
+        
     private void callPane() {
         
     }
     
-    
-    
     @FXML 
-    private void addProcessoSistema(ActionEvent event) throws InterruptedException {
-          String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
-          int IDint = Integer.parseInt(id);
-          String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
-          int intTempo = Integer.parseInt(tempo);
-          Processo sistema = new Processo("true", IDint, 01, intTempo);
-          filaSistema.addProcesso(sistema);
-          filaSistema.checkProcessos(sistema);
-
+    private void addProcessoSistema(ActionEvent event) {
+        Fila filaSistema = new FilaSistema();
+        filaSistema.addProcesso(new Processo(12, 4, 45));  
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {
-          String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
-          int IDint = Integer.parseInt(id);
-          String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
-          int intTempo = Integer.parseInt(tempo);
-          Processo interativo = new Processo("true", IDint, 02, intTempo);
-          filaInterativa.addProcesso(interativo);
+
     }
     @FXML
     private void addProcessoBatch(ActionEvent event) {
-          String id = JOptionPane.showInputDialog(null, "Digite o ID do processo");
-          int IDint = Integer.parseInt(id);
-          String tempo = JOptionPane.showInputDialog(null, "Digite o tempo do processo");
-          int intTempo = Integer.parseInt(tempo);         
-          Processo batch = new Processo("true", IDint, 03, intTempo);
-          filaBatch.addProcesso(batch);
-        
+
     }
    
     // Alterar cores dos botões

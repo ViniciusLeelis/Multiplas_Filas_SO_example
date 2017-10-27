@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fatec.app.process;
+/*
+    Classe abstrata que será herdada pelas demais para caracaterizar as filas
+*/
+public abstract class Fila {
 
-import java.util.List;
-
-/**
- *
- * @author felipe
- */
-public interface Fila {
-    
-    public void addProcesso(Processo processo);
-    public void removeProcesso(Processo processo);
-
-    
+    public void addProcesso(Processo processo){
+        
+    }
+    public void removeProcesso(Processo processo){
+        
+    }
 }

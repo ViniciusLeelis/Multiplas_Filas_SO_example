@@ -1,15 +1,15 @@
 package fatec.app.process;
 
-import java.util.concurrent.TimeUnit;
-
+/*
+Classe de estrutura de um processo
+*/
 public class Processo {
-    private String idColor;
     private int id;
     private int prioridade;
     private boolean exec;
     private int tempo;
     
-    public Processo(String idColor, int id, int prioridade, int tempo) {
+    public Processo(int id, int prioridade, int tempo) {
         this.id = id;
         this.prioridade = prioridade;
         this.tempo = tempo;
@@ -26,7 +26,12 @@ public class Processo {
     public int getTempo(){
         return tempo;
     }
-    public boolean returnEstado() {
+    
+    public void setExec(boolean exec){
+        this.exec = exec;
+    }
+    
+    public boolean getExec(){
         return exec;
     }
     

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fatec.so.multiplasfilas;
+package fatec.app.view;
 
 import java.awt.Rectangle;
 import java.net.URL;
@@ -15,8 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Line;
 import static javax.swing.text.StyleConstants.Background;
-import fatec.so.multiplasfilas.Processo;
-import fatec.so.multiplasfilas.Fila;
+import fatec.app.Processo;
+import fatec.app.Fila;
+import fatec.app.Processo;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.layout.AnchorPane;

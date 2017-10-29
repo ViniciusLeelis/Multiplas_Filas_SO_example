@@ -1,30 +1,42 @@
 package fatec.app.process;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class FilaSistema extends Fila implements Escalonamento, Runnable{
     
-    private int delay;
+    private int prioridadeFila = 5;
     
     @Override
     public void escalonamento(Processo processo) {
-        // Escalonamento de prioridades
-        // Maior prioridade == Passa a ser executado
-        
-        if (processo.getPrioridade() >= 4 && processo.getPrioridade() <= 5){
-            this.delay = processo.getTempo();
-        }
-    } 
+        Collections.sort(processos);
+    }
+    
+    public int getPrioridadeFila(){
+        return prioridadeFila;
+    }
     
     @Override
     public void run(){
-        try {
-            // A thread irá executar este processo
-            System.out.println("Processo sendo executado");
-            Thread.sleep(delay * 1000);
-            System.out.println("Processo finalizado");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao tentar executar o processo: \n" + ex.getMessage());
+        while (!this.isEmpty()){   
+            int i = 0;
+            int tempoEmExecucao = 0;
+                try {
+                    Thread.sleep(5 * 1000);
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao executar o processo");        
+                }
+                tempoEmExecucao++;
+                processos.get(i).setTempo(processos.get(i).getTempo() - tempoEmExecucao);
+                
+                if (processos.get(i).getTempo() == 0){ 
+                    processos.remove(processos.get(i));
+            }
         }
     }
 }

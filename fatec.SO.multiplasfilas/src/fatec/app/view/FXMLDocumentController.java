@@ -1,6 +1,5 @@
 package fatec.app.view;
 
-
 import fatec.app.process.Fila;
 import fatec.app.process.FilaSistema;
 import fatec.app.process.Processo;
@@ -64,8 +63,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML 
     private void addProcessoSistema(ActionEvent event) {
-        Fila filaSistema = new FilaSistema();
-        filaSistema.addProcesso(new Processo(12, 4, 45));  
+        
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {

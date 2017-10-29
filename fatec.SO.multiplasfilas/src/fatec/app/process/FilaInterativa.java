@@ -5,16 +5,17 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class FilaInterativa extends Fila implements Escalonamento, Runnable{
-    
-    private int prioridadeFila = 3;
-    private int tempoLimite = 10; 
-    
+   
+    private int tempoLimite = 10;  
     private Processo[] processos;
     private int primeiro;
     private int ultimo;
     private int total;
     
     public FilaInterativa(){
+        
+        this.setPrioridade(3);
+        
         primeiro = 0;
         ultimo = 0;
         total = 0;

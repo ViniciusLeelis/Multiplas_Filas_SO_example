@@ -9,18 +9,18 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class FilaSistema extends Fila implements Escalonamento, Runnable{
+     
+    // Fila de sistema tem prioridade 5
     
-    private int prioridadeFila = 5;
+    public FilaSistema(){
+        this.setPrioridade(5); 
+    }
     
     @Override
     public void escalonamento(Processo processo) {
         Collections.sort(processos);
     }
-    
-    public int getPrioridadeFila(){
-        return prioridadeFila;
-    }
-    
+        
     @Override
     public void run(){
         while (!this.isEmpty()){   
@@ -39,4 +39,5 @@ public class FilaSistema extends Fila implements Escalonamento, Runnable{
             }
         }
     }
+
 }

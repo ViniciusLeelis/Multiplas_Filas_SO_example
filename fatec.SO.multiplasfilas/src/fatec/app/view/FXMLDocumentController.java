@@ -1,6 +1,8 @@
 package fatec.app.view;
 
 import fatec.app.process.Fila;
+import fatec.app.process.FilaBatch;
+import fatec.app.process.FilaInterativa;
 import fatec.app.process.FilaSistema;
 import fatec.app.process.Processo;
 import java.awt.Rectangle;
@@ -14,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.shape.Line;
 import static javax.swing.text.StyleConstants.Background;
 import javafx.scene.layout.AnchorPane;
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -21,6 +24,10 @@ import javafx.scene.layout.AnchorPane;
  * @author Vinicius Lelis
  */
 public class FXMLDocumentController implements Initializable {
+    
+    private Fila sistema;
+    private Fila interativa;
+    private Fila batch;
     
     @FXML
     private AnchorPane AnchorPane;
@@ -61,17 +68,31 @@ public class FXMLDocumentController implements Initializable {
         
     }
     
+    public FXMLDocumentController(){
+        sistema = new FilaSistema();
+        interativa = new FilaInterativa();
+        batch = new FilaBatch();
+    }
+    
+    private Processo newProcess(){
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do processo"));
+        int prioridade = Integer.parseInt(JOptionPane.showInputDialog("Insira A prioridade do processo"));
+        int tempo = Integer.parseInt("Insira o tempo de execução do processo");
+        
+        return new Processo(id, prioridade, tempo);
+    }
+    
     @FXML 
     private void addProcessoSistema(ActionEvent event) {
-        
+        sistema.addProcesso(this.newProcess());
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {
-
+        interativa.addProcesso(this.newProcess());
     }
     @FXML
     private void addProcessoBatch(ActionEvent event) {
-
+        batch.addProcesso(this.newProcess());
     }
    
     // Alterar cores dos botões

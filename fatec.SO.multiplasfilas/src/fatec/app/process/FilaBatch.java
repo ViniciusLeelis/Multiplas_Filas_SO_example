@@ -13,6 +13,8 @@ public class FilaBatch extends Fila implements Escalonamento, Runnable{
     private int total;
     
     public FilaBatch(){
+        this.setPrioridade(1);
+        
         primeiro = 0;
         ultimo = 0;
         total = 0;

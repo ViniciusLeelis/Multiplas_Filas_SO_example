@@ -27,13 +27,13 @@
       </Text>
       <Pane layoutX="246.0" layoutY="97.0" prefHeight="180.0" prefWidth="512.0" style="-fx-background-color: #388697;">
          <children>
-            <Button id="false" fx:id="sy04" layoutX="22.0" layoutY="53.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: WHITE;" text="4" textOverrun="WORD_ELLIPSIS">
+            <Button id="false" fx:id="sy04" layoutX="22.0" layoutY="53.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: FFFFFF;" text="4" textOverrun="WORD_ELLIPSIS">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button id="false" fx:id="sy03" layoutX="135.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: WHITE;" text="3" />
-            <Button id="false" fx:id="sy02" layoutX="249.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: WHITE;" text="2" />
+            <Button id="false" fx:id="sy03" layoutX="135.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: FFFFFF;" text="3" />
+            <Button id="false" fx:id="sy02" layoutX="249.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: FFFFFF;" text="2" />
             <Button id="false" fx:id="sy01" layoutX="367.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: #FFFFFF;" text="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0ca3c" height="49.0" layoutY="-22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="213.0" />
             <Text fill="#171212" layoutX="45.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema">

@@ -7,6 +7,7 @@ import fatec.app.process.FilaSistema;
 import fatec.app.process.Processo;
 import java.awt.Rectangle;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,50 +64,69 @@ public class FXMLDocumentController implements Initializable {
     private Button intLineB;
     @FXML
     private Button batchLineB;
-        
+    
+    @FXML
+    private ArrayList<Button> sistemaBotoes = new ArrayList<>();
+    private ArrayList<Button> interativaBotoes = new ArrayList<>();
+    private ArrayList<Button> batchBotoes = new ArrayList<>();
+    
     private void callPane() {
         
     }
     
     public FXMLDocumentController(){
+
+        
         sistema = new FilaSistema();
         interativa = new FilaInterativa();
         batch = new FilaBatch();
     }
     
+    public void addSistemaButton(Button botao) {
+            sistemaBotoes.add(botao);
+            
+    }
+    public void addInterativoButton(Button botao) {
+            interativaBotoes.add(botao);
+    }
+    public void addBatchButton(Button botao) {
+            batchBotoes.add(botao);
+    }
+    
+    
     private Processo newProcess(){
         int id = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do processo"));
         int prioridade = Integer.parseInt(JOptionPane.showInputDialog("Insira A prioridade do processo"));
-        int tempo = Integer.parseInt("Insira o tempo de execução do processo");
-        
+        int tempo = Integer.parseInt(JOptionPane.showInputDialog("Insira o tempo de execução do processo"));
         return new Processo(id, prioridade, tempo);
     }
     
     @FXML 
     private void addProcessoSistema(ActionEvent event) {
-        sistema.addProcesso(this.newProcess());
+        sistema.addProcesso(newProcess());
+        
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {
-        interativa.addProcesso(this.newProcess());
+        interativa.addProcesso(newProcess());
     }
     @FXML
     private void addProcessoBatch(ActionEvent event) {
-        batch.addProcesso(this.newProcess());
+        batch.addProcesso(newProcess());
     }
    
     // Alterar cores dos botões
     private void setVazio(Button button) {
-        button.setStyle("-fx-background-color:WHITE;");
+        button.setStyle("-fx-background-color: WHITE;");
     }
     private void setExecutando(Button button) {
-        button.setStyle("-fx-background-color:#79ff75;");
+        button.setStyle("-fx-background-color: #79ff75;");
     }
     private void setAguardando(Button button) {
-        button.setStyle("-fx-background-color:#f1ff1f;");
+        button.setStyle("-fx-background-color: #f1ff1f;");
     }
     private void setPronto(Button button) {
-        button.setStyle("-fx-background-color:#ff28de;");
+        button.setStyle("-fx-background-color: #ff28de;");
     }
     private void setLineExecutando(Button button) {
         button.setStyle("-fx-background-color:#79ff75;");
@@ -114,6 +134,7 @@ public class FXMLDocumentController implements Initializable {
     private void setLineVazio(Button button) {
         button.setStyle("-fx-background-color:WHITE;");
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

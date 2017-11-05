@@ -8,6 +8,7 @@ import fatec.app.process.Processo;
 import java.awt.Rectangle;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,46 +66,64 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button batchLineB;
     
-    @FXML
-    private ArrayList<Button> sistemaBotoes = new ArrayList<>();
-    private ArrayList<Button> interativaBotoes = new ArrayList<>();
-    private ArrayList<Button> batchBotoes = new ArrayList<>();
+    private ArrayList<Button>botoesSistema = new ArrayList<>();
+    
+    private ArrayList<Button>botoesInterativo = new ArrayList<>();
+    private ArrayList<Button>botoesBatch = new ArrayList<>();
+    
+    private ArrayList<Button>allBotoes = new ArrayList<>();
+    
+    private void addButtonSistema() {
+         botoesSistema.add(sy01); botoesSistema.add(sy02); botoesSistema.add(sy03); botoesSistema.add(sy04);       
+    }
+    private void addButtonInterativo() {
+         botoesInterativo.add(int01); botoesInterativo.add(int02); botoesInterativo.add(int03); botoesInterativo.add(int04);       
+    }
+    private void addButtonBatch() {
+         botoesBatch.add(batch01); botoesBatch.add(batch02); botoesBatch.add(batch03); botoesBatch.add(batch04);       
+    }    
+    private void addAll(){
+        allBotoes.add(sy01); allBotoes.add(sy02); allBotoes.add(sy03); allBotoes.add(sy04);
+        allBotoes.add(int01); allBotoes.add(int02); allBotoes.add(int03); allBotoes.add(int04);
+        allBotoes.add(batch01); allBotoes.add(batch02); allBotoes.add(batch03); allBotoes.add(batch04);
+    }
+    
+ 
+   
+    
     
     private void callPane() {
         
     }
     
     public FXMLDocumentController(){
-
-        
         sistema = new FilaSistema();
         interativa = new FilaInterativa();
         batch = new FilaBatch();
     }
-    
-    public void addSistemaButton(Button botao) {
-            sistemaBotoes.add(botao);
-            
-    }
-    public void addInterativoButton(Button botao) {
-            interativaBotoes.add(botao);
-    }
-    public void addBatchButton(Button botao) {
-            batchBotoes.add(botao);
-    }
-    
+
+        private void turnON(){
+        addButtonSistema();
+        for(int i = 0; i<=4; i++) {
+            if(sistema.getContainsProcess() == true)
+                botoesSistema.get(i).setStyle(setExecutando());
+            else
+                botoesSistema.get(i).setStyle(setVazio());
+            }
+        }
     
     private Processo newProcess(){
         int id = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do processo"));
         int prioridade = Integer.parseInt(JOptionPane.showInputDialog("Insira A prioridade do processo"));
-        int tempo = Integer.parseInt(JOptionPane.showInputDialog("Insira o tempo de execução do processo"));
+        int tempo = Integer.parseInt("Insira o tempo de execução do processo");
+        
         return new Processo(id, prioridade, tempo);
     }
     
     @FXML 
     private void addProcessoSistema(ActionEvent event) {
         sistema.addProcesso(newProcess());
-        
+        turnON();
     }
     @FXML
     private void addProcessoInterativo(ActionEvent event) {
@@ -114,19 +133,23 @@ public class FXMLDocumentController implements Initializable {
     private void addProcessoBatch(ActionEvent event) {
         batch.addProcesso(newProcess());
     }
+    @FXML
+    private void atualizar(ActionEvent event) {
+        JOptionPane.showMessageDialog(null, "Desativado");
+    }
    
     // Alterar cores dos botões
-    private void setVazio(Button button) {
-        button.setStyle("-fx-background-color: WHITE;");
+    private String setVazio() {
+        return "-fx-background-color:FFFFFF;";
     }
-    private void setExecutando(Button button) {
-        button.setStyle("-fx-background-color: #79ff75;");
+    private String setExecutando() {
+        return "-fx-background-color:#79ff75;";
     }
     private void setAguardando(Button button) {
-        button.setStyle("-fx-background-color: #f1ff1f;");
+        button.setStyle("-fx-background-color:#f1ff1f;");
     }
     private void setPronto(Button button) {
-        button.setStyle("-fx-background-color: #ff28de;");
+        button.setStyle("-fx-background-color:#ff28de;");
     }
     private void setLineExecutando(Button button) {
         button.setStyle("-fx-background-color:#79ff75;");
@@ -134,7 +157,6 @@ public class FXMLDocumentController implements Initializable {
     private void setLineVazio(Button button) {
         button.setStyle("-fx-background-color:WHITE;");
     }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

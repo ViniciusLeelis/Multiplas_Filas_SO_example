@@ -27,13 +27,13 @@
       </Text>
       <Pane layoutX="246.0" layoutY="97.0" prefHeight="180.0" prefWidth="512.0" style="-fx-background-color: #388697;">
          <children>
-            <Button id="false" fx:id="sy04" layoutX="22.0" layoutY="53.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: FFFFFF;" text="4" textOverrun="WORD_ELLIPSIS">
+            <Button id="false" fx:id="sy04" layoutX="22.0" layoutY="53.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: WHITE;" text="4" textOverrun="WORD_ELLIPSIS">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button id="false" fx:id="sy03" layoutX="135.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: FFFFFF;" text="3" />
-            <Button id="false" fx:id="sy02" layoutX="249.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: FFFFFF;" text="2" />
+            <Button id="false" fx:id="sy03" layoutX="135.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: WHITE;" text="3" />
+            <Button id="false" fx:id="sy02" layoutX="249.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: WHITE;" text="2" />
             <Button id="false" fx:id="sy01" layoutX="367.0" layoutY="53.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: #FFFFFF;" text="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0ca3c" height="49.0" layoutY="-22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="213.0" />
             <Text fill="#171212" layoutX="45.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema">
@@ -84,9 +84,10 @@
                   <Font size="37.0" />
                </font>
             </Text>
-            <Button fx:id="addSistema" layoutY="89.0" mnemonicParsing="false" onAction="#addProcessoSistema" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="Adicionar Processo Sistema" />
-            <Button fx:id="addInterativo" layoutY="145.0" mnemonicParsing="false" onAction="#addProcessoInterativo" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="Adicionar Processo Interativo" />
-            <Button fx:id="addBatch" layoutY="200.0" mnemonicParsing="false" onAction="#addProcessoBatch" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="Adicionar Processo Batch" />
+            <Button fx:id="addSistema" layoutY="62.0" mnemonicParsing="false" onAction="#addProcessoSistema" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="Adicionar Processo Sistema" />
+            <Button fx:id="addInterativo" layoutY="118.0" mnemonicParsing="false" onAction="#addProcessoInterativo" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="Adicionar Processo Interativo" />
+            <Button fx:id="addBatch" layoutY="173.0" mnemonicParsing="false" onAction="#addProcessoBatch" prefHeight="37.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="Adicionar Processo Batch" />
+            <Button fx:id="atualizar" layoutY="224.0" mnemonicParsing="false" onAction="#atualizar" prefHeight="48.0" prefWidth="213.0" style="-fx-background-color: #e0ca3c;" text="ATUALIZAR" />
          </children>
       </Pane>
       <Line fx:id="syLine01" endX="72.0" layoutX="862.0" layoutY="183.0" startX="-102.0" stroke="#79ff75" strokeMiterLimit="8.0" strokeWidth="4.0" style="-fx-stroke: white;" />
